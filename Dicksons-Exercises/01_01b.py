@@ -1,6 +1,27 @@
+import string
+
+
 def count_words(paragraph):
-    #code goes here
-    return
+    # Remove capitalization to count words that differ only in capitalization as the same word
+    paragraph = paragraph.lower()
+
+    # https://docs.python.org/3/library/stdtypes.html#str.maketrans
+    # https://docs.python.org/3/library/string.html?highlight=punctuation#string.punctuation
+    paragraph = paragraph.translate(str.maketrans('', '', string.punctuation))
+
+    # https://docs.python.org/3/library/stdtypes.html?highlight=split#str.split
+    wordList = paragraph.split()
+
+    wordDictionary = {}
+
+    for word in wordList:
+        if word not in wordDictionary:
+            wordDictionary[word] = 1
+        else:
+            wordDictionary[word] += 1
+
+    return len(wordList)
+
 
 def main():
     paragraph = """Nadia’s Garden Restaurant is the creation of husband and wife team Nadia and Timothy Arbore. 
@@ -11,7 +32,8 @@ def main():
      that could be made from local organic suppliers. Preservation of the building’s original layout has allowed them to create smaller, 
      more intimate, dining spaces. Nadia and Timothy are committed to sharing their family history of cuisine, along with their new inspirations,
       with their customers. Their passion for community, entertainment, and hospitality are found in every aspect of Nadia’s Garden Restaurant."""
-    print(count_words(paragraph)) 
+    print(count_words(paragraph))
+
 
 if __name__ == "__main__":
     main()
