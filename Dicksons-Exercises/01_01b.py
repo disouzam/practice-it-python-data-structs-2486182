@@ -20,7 +20,7 @@ def count_words(paragraph):
         else:
             wordDictionary[word] += 1
 
-    return len(wordList)
+    return wordDictionary
 
 
 def main():
