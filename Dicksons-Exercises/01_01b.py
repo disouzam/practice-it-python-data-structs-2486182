@@ -1,5 +1,5 @@
 import string
-
+from collections import Counter
 
 def count_words(paragraph):
     # Remove capitalization to count words that differ only in capitalization as the same word
@@ -12,15 +12,9 @@ def count_words(paragraph):
     # https://docs.python.org/3/library/stdtypes.html?highlight=split#str.split
     wordList = paragraph.split()
 
-    wordDictionary = {}
+    counter = Counter(wordList)
 
-    for word in wordList:
-        if word not in wordDictionary:
-            wordDictionary[word] = 1
-        else:
-            wordDictionary[word] += 1
-
-    return wordDictionary
+    return counter
 
 
 def main():
