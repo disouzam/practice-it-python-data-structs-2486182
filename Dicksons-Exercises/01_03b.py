@@ -1,3 +1,5 @@
+from collections import Counter
+
 def main():
     # Add code here
     inventory = Counter(STA001=10, SAL002=20, ENT004=13)
