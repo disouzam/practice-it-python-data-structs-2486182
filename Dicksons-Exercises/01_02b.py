@@ -4,6 +4,8 @@ from collections import Counter
 def get_common_products(products_purchased):
     # code goes here
     counter_products = Counter(products_purchased)
+
+    # https://docs.python.org/3/library/collections.html?highlight=counter#collections.Counter
     top3_products = counter_products.most_common(3)
     return top3_products
 
